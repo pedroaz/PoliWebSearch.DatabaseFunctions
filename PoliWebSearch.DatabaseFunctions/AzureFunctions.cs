@@ -15,7 +15,7 @@ namespace PoliWebSearch.DatabaseFunctions
 
         [FunctionName("Ping")]
         public static async Task<IActionResult> PingFunction(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req, ILogger log)
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req, ILogger log)
         {
             log.LogInformation("Service was pinged");
             return new OkObjectResult("true");
@@ -23,7 +23,7 @@ namespace PoliWebSearch.DatabaseFunctions
 
         [FunctionName("ExecuteCustomQuery")]
         public static async Task<IActionResult> ExecuteCustomQueryFunction(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req, ILogger log)
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req, ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
 
