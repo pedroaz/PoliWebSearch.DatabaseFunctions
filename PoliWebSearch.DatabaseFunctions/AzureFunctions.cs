@@ -27,12 +27,11 @@ namespace PoliWebSearch.DatabaseFunctions
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
 
-            string name = req.Query["name"];
+            string query = req.Query["Query"];
 
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
+            log.LogInformation($"Recieved Query: {query}");
 
-            return new OkObjectResult("Query Executed Successfully");
+            return new OkObjectResult("Database Query Executed Successfully");
         }
     }
 }
