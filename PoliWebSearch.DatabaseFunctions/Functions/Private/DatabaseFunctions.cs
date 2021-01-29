@@ -10,6 +10,9 @@ using System;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
+using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
 namespace PoliWebSearch.DatabaseFunctions.Functions.Private
 {
@@ -20,6 +23,9 @@ namespace PoliWebSearch.DatabaseFunctions.Functions.Private
         private static readonly string graphNameVariable = "GraphName";
         private static readonly string hostNameVariable = "HostName";
         private static readonly string masterKeyVariable = "MasterKey";
+        private static readonly JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings() {
+            Formatting = Formatting.Indented
+        };
 
         static DatabaseFunctions()
         {
@@ -37,21 +43,23 @@ namespace PoliWebSearch.DatabaseFunctions.Functions.Private
         {
             var databaseQuery = await GetDatabaseQuery(req);
             using var client = new GremlinClient(server, new GraphSON2Reader(), new GraphSON2Writer(), GremlinClient.GraphSON2MimeType);
-            var queryResult = await client.SubmitAsync<dynamic>(databaseQuery.Query);
 
-            StringBuilder sb = new StringBuilder();
-            foreach (var item in queryResult) {
-                sb.Append(JsonConvert.SerializeObject(item));
+            var resultSet = await client.SubmitAsync<dynamic>(databaseQuery.Query);
+            JArray array = new JArray();
+            foreach (var result in resultSet) {
+
+                // I have no idea why we need to do this shit, but it work.
+                string jsonObject = JsonConvert.SerializeObject(result, jsonSerializerSettings);
+                array.Add(JsonConvert.DeserializeObject(jsonObject));
             }
 
-            return new OkObjectResult(sb.ToString());
+            return new OkObjectResult(array.ToString());
         }
 
         private static async Task<DatabaseQueryDTO> GetDatabaseQuery(HttpRequest req)
         {
-            string query = req.Query["Query"];
             var jsonString = await new StreamReader(req.Body).ReadToEndAsync();
-            var databaseQuery = JsonConvert.DeserializeObject<DatabaseQueryDTO>(jsonString);
+            var databaseQuery = JsonConvert.DeserializeObject<DatabaseQueryDTO>(jsonString, jsonSerializerSettings);
             return databaseQuery;
         }
     }
