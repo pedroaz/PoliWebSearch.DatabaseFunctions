@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoliWebSearch.DatabaseFunctions", "PoliWebSearch.DatabaseFunctions\PoliWebSearch.DatabaseFunctions.csproj", "{D2F2F1F5-D9CB-4A1B-BCEA-5DCD7D830436}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PoliWebSearch.DatabaseFunctions", "src\PoliWebSearch.DatabaseFunctions\PoliWebSearch.DatabaseFunctions.csproj", "{D84902D5-5877-4798-867B-2B423FAA346F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoliWebSearch.DatabaseFunctions.Tests", "tests\PoliWebSearch.DatabaseFunctions.Tests\PoliWebSearch.DatabaseFunctions.Tests.csproj", "{36857ABA-4FE7-41D4-81ED-366389EF757B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E89209F8-B962-4694-B34B-1D62F6FDE52F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +15,20 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D2F2F1F5-D9CB-4A1B-BCEA-5DCD7D830436}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D2F2F1F5-D9CB-4A1B-BCEA-5DCD7D830436}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D2F2F1F5-D9CB-4A1B-BCEA-5DCD7D830436}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D2F2F1F5-D9CB-4A1B-BCEA-5DCD7D830436}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D84902D5-5877-4798-867B-2B423FAA346F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D84902D5-5877-4798-867B-2B423FAA346F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D84902D5-5877-4798-867B-2B423FAA346F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D84902D5-5877-4798-867B-2B423FAA346F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36857ABA-4FE7-41D4-81ED-366389EF757B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36857ABA-4FE7-41D4-81ED-366389EF757B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36857ABA-4FE7-41D4-81ED-366389EF757B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36857ABA-4FE7-41D4-81ED-366389EF757B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{36857ABA-4FE7-41D4-81ED-366389EF757B} = {E89209F8-B962-4694-B34B-1D62F6FDE52F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8C67280D-FCE4-4387-9CE7-F3D71D5EE684}

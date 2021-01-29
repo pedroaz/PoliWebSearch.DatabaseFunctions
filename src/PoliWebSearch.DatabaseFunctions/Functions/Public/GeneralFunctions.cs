@@ -10,9 +10,14 @@ namespace PoliWebSearch.DatabaseFunctions
 {
     public class GeneralFunctions
     {
+        /// <summary>
+        /// Pings the azure function and always returns true
+        /// </summary>
+        /// <param name="req">The http request</param>
+        /// <returns></returns>
         [FunctionName("Ping")]
-        public static async Task<IActionResult> PingFunction(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req, ILogger log)
+        public async Task<IActionResult> PingFunction(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req)
         {
             return new OkObjectResult("true");
         }
