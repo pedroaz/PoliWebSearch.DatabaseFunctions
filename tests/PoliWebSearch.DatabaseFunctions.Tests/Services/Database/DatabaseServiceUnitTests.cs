@@ -1,11 +1,6 @@
-﻿using PoliWebSearch.DatabaseFunctions.Services.Database;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
-using FluentAssertions;
+﻿using Microsoft.Extensions.Logging;
 using Moq;
-using Microsoft.Extensions.Logging;
+using PoliWebSearch.DatabaseFunctions.Services.Database;
 
 namespace PoliWebSearch.DatabaseFunctions.Tests.Services.Database
 {
@@ -18,20 +13,5 @@ namespace PoliWebSearch.DatabaseFunctions.Tests.Services.Database
         {
             databaseService = new DatabaseService(loggerMock.Object);
         }
-
-        [Fact]
-        public void OnDatabaseInitialize_ShouldCreateGremlinServer()
-        {
-            // Arrange
-            Environment.SetEnvironmentVariable("DatabaseName", "name");
-            Environment.SetEnvironmentVariable("GraphName", "graph");
-            Environment.SetEnvironmentVariable("HostName", "host");
-            Environment.SetEnvironmentVariable("MasterKey", "master");
-            // Act
-            databaseService.Initialize();
-            // Assert
-            databaseService.GetDatabaseServiceStatus().Should().Be(DatabaseServiceStatus.Started);
-        }
-
     }
 }
