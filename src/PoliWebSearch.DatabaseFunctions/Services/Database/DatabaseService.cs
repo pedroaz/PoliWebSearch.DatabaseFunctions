@@ -24,10 +24,11 @@ namespace PoliWebSearch.DatabaseFunctions.Services.Database
         public DatabaseService(ILogger logger)
         {
             this.logger = logger;
+            Initialize();
         }
 
         // <inheritdoc/>
-        public void Initialize()
+        private void Initialize()
         {
             try {
                 var databaseName = Environment.GetEnvironmentVariable(databaseNameVariable);

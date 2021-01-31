@@ -2,11 +2,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.Extensions.Logging;
-using System;
 using System.Threading.Tasks;
 
-namespace PoliWebSearch.DatabaseFunctions
+namespace PoliWebSearch.Functions
 {
     public class GeneralFunctions
     {

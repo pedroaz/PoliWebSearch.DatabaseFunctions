@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.DurableTask;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Newtonsoft.Json;
 using PoliWebSearch.DatabaseFunctions.DTO;
@@ -12,12 +13,11 @@ namespace PoliWebSearch.DatabaseFunctions.Functions.Private
 {
     public class DatabaseFunctions
     {
-        private static IDatabaseService databaseService;
+        private IDatabaseService databaseService;
 
-        public DatabaseFunctions(IDatabaseService dbService)
+        public DatabaseFunctions(IDatabaseService databaseSerivce)
         {
-            databaseService = dbService;
-            databaseService.Initialize();
+            databaseService = databaseSerivce;
         }
 
         /// <summary>
