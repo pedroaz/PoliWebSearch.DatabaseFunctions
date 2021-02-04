@@ -10,13 +10,19 @@ namespace PoliWebSearch.DatabaseFunctions.DTO
     {
         public string Id { get; set; }
         public string Cpf { get; set; }
-        public string CandidateName { get; set; }
+        public List<string> Names { get; set; }
 
-        public PersonDataDTO(PersonDataModel model)
+        public PersonDataDTO(DatabaseResultModel model)
         {
             Id = model?.id;
             Cpf = model?.properties["Cpf"]?.First()?.value;
-            CandidateName = model?.properties["CandidateName"]?.First()?.value;
+            Names = new List<string>();
+            foreach (var item in model?.properties["Names"]) {
+                if(item.value != "") {
+                    Names.Add(item.value);
+                }
+            }
+            Names = Names.Distinct().ToList();
         }
     }
 }

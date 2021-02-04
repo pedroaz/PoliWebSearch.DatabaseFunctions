@@ -35,7 +35,7 @@ namespace PoliWebSearch.DatabaseFunctions.Functions.Public.People
 
                 var databaseJsonResponse = await databaseService.ExecuteQuery(query);
 
-                var models = JsonConvert.DeserializeObject<List<PersonDataModel>>(databaseJsonResponse);
+                var models = JsonConvert.DeserializeObject<List<DatabaseResultModel>>(databaseJsonResponse);
 
                 if (models.Any()) {
                     var data = new PersonDataDTO(models.First());
