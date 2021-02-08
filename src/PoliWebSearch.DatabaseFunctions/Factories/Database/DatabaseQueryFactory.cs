@@ -5,8 +5,13 @@
         // <inheritdoc/>
         public string CreateGetPersonInformationByCpfQuery(string cpf)
         {
-            // TODO: Add code injection verification 
             return $"g.V().has('Cpf','{cpf}')";
+        }
+
+        // <inheritdoc/>
+        public string CreateSearchPersonByNameQuery(string name, int maxAmountOfResult)
+        {
+            return $"g.V().has('person', 'Names', containing('{name.ToUpper()}')).limit({maxAmountOfResult})";
         }
     }
 }

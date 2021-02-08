@@ -1,5 +1,4 @@
-﻿using PoliWebSearch.DatabaseFunctions.DTO;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace PoliWebSearch.DatabaseFunctions.Data.Models
 {

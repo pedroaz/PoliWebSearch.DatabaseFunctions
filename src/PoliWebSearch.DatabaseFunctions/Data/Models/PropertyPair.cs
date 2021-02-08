@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PoliWebSearch.DatabaseFunctions.DTO
+﻿namespace PoliWebSearch.DatabaseFunctions.Data.Models
 {
     public class PropertyPair
     {

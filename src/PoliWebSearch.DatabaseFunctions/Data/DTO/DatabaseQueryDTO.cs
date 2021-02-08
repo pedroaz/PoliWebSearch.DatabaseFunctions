@@ -1,4 +1,4 @@
-﻿namespace PoliWebSearch.DatabaseFunctions.DTO
+﻿namespace PoliWebSearch.DatabaseFunctions.Data.DTO
 {
     /// <summary>
     /// DTO class for the database query operation

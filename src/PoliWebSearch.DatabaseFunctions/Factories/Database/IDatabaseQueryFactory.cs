@@ -8,5 +8,12 @@
         /// <param name="request"></param>
         /// <returns></returns>
         string CreateGetPersonInformationByCpfQuery(string cpf);
+
+        /// <summary>
+        /// Create query to search all persons with the given name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        string CreateSearchPersonByNameQuery(string name, int maxAmountOfResult);
     }
 }
