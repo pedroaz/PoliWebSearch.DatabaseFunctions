@@ -4,7 +4,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using System.Threading.Tasks;
 
-namespace PoliWebSearch.DatabaseFunctions.Functions
+namespace PoliWebSearch.DatabaseFunctions.Functions.Public
 {
     public class GeneralFunctions
     {
